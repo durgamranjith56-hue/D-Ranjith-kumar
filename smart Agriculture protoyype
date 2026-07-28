@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class SmartAgricultureMonitoringSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("=== Smart Agriculture Monitoring System ===");
+
+        // Input sensor values
+        System.out.print("Enter Soil Moisture (%): ");
+        double soilMoisture = sc.nextDouble();
+
+        System.out.print("Enter Temperature (°C): ");
+        double temperature = sc.nextDouble();
+
+        System.out.print("Enter Humidity (%): ");
+        double humidity = sc.nextDouble();
+
+        System.out.println("\n--- Monitoring Report ---");
+
+        // Soil Moisture Check
+        if (soilMoisture < 30) {
+            System.out.println("Soil Moisture: Low - Irrigation Required.");
+        } else if (soilMoisture <= 70) {
+            System.out.println("Soil Moisture: Normal.");
+        } else {
+            System.out.println("Soil Moisture: High - Stop Irrigation.");
+        }
+
+        // Temperature Check
+        if (temperature > 35) {
+            System.out.println("Temperature: High - Protect crops from heat.");
+        } else if (temperature >= 20) {
+            System.out.println("Temperature: Optimal.");
+        } else {
+            System.out.println("Temperature: Low - Protect crops from cold.");
+        }
+
+        // Humidity Check
+        if (humidity < 40) {
+            System.out.println("Humidity: Low.");
+        } else if (humidity <= 70) {
+            System.out.println("Humidity: Normal.");
+        } else {
+            System.out.println("Humidity: High - Risk of fungal diseases.");
+        }
+
+        // Overall Recommendation
+        System.out.println("\n--- Recommendation ---");
+        if (soilMoisture < 30 && temperature > 35) {
+            System.out.println("Turn ON irrigation immediately.");
+        } else if (soilMoisture > 70) {
+            System.out.println("Turn OFF irrigation.");
+        } else {
+            System.out.println("Field conditions are satisfactory.");
+        }
+
+        sc.close();
+    }
+}
